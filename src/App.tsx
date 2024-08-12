@@ -11,14 +11,14 @@ function App() {
         </Grid>
         <Grid
           xs={0}
-          lg={6}
+          lg={2}
           sx={{
             display: { xs: "none", lg: "block" }, // hide on screens smaller than lg
           }}
         >
           Aside
         </Grid>
-        <Grid xs={12} lg={6}>
+        <Grid xs={12} lg={10}>
           <GameGrid />
         </Grid>
       </Grid>

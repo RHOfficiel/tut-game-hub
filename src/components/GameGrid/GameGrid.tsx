@@ -1,5 +1,6 @@
-import { Typography } from "@mui/joy";
+import { Box, Typography } from "@mui/joy";
 import useGames from "../../hooks/useGames";
+import GameCard from "../GameCard/GameCard";
 
 const GameGrid = () => {
   const { games, error } = useGames();
@@ -11,11 +12,21 @@ const GameGrid = () => {
           {error}
         </Typography>
       )}
-      <ul>
+      <Box
+        component="ul"
+        sx={{
+          display: "flex",
+          gap: 2,
+          flexWrap: "wrap",
+          p: 2,
+          m: 0,
+          justifyContent: "center",
+        }}
+      >
         {games.map((game) => (
-          <li key={game.id}> {game.name} </li>
+          <GameCard key={game.id} game={game} />
         ))}
-      </ul>
+      </Box>
     </>
   );
 };
