@@ -13,9 +13,7 @@ root.render(
   <React.StrictMode>
     <CssVarsProvider>
       <CssBaseline />
-      <ChakraProvider>
-        <App />
-      </ChakraProvider>
+      <App />
     </CssVarsProvider>
   </React.StrictMode>
 );
