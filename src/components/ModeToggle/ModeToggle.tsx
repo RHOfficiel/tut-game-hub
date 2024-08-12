@@ -1,29 +1,39 @@
 import { useEffect, useState } from "react";
-import { useColorScheme } from "@mui/joy/styles";
-import Button from "@mui/joy/Button";
+import { useColorScheme as useJoyColorScheme } from "@mui/joy/styles";
+import { useColorScheme as useMaterialColorScheme } from "@mui/material/styles";
+
+import { IconButton } from "@mui/joy";
+import { DarkMode, LightMode } from "@mui/icons-material";
 
 const ModeToggle = () => {
-  const { mode, setMode } = useColorScheme();
+  const { mode, setMode: setMaterialMode } = useMaterialColorScheme();
+  const { setMode: setJoyMode } = useJoyColorScheme();
   const [mounted, setMounted] = useState(false);
-
-  // necessary for server-side rendering
-  // because mode is undefined on the server
   useEffect(() => {
     setMounted(true);
   }, []);
   if (!mounted) {
-    return <Button variant="soft">Change mode</Button>;
+    return null; // prevent server-side rendering mismatch
   }
-
   return (
-    <Button
-      variant="soft"
+    <IconButton
+      aria-label="Toggle DarkMode"
+      sx={{
+        width: 50, // Explicitly set the width of the IconButton
+        height: 50, // Explicitly set the height of the IconButton
+        fontSize: 28, // Explicitly set the font size for the icon inside
+      }}
       onClick={() => {
-        setMode(mode === "light" ? "dark" : "light");
+        setMaterialMode(mode === "dark" ? "light" : "dark");
+        setJoyMode(mode === "dark" ? "light" : "dark");
       }}
     >
-      {mode === "light" ? "Turn dark" : "Turn light"}
-    </Button>
+      {mode === "dark" ? (
+        <DarkMode /> // Explicitly set the icon size
+      ) : (
+        <LightMode /> // Explicitly set the icon size
+      )}
+    </IconButton>
   );
 };
 

@@ -1,7 +1,6 @@
-import { useColorScheme } from "@mui/joy/styles";
 import Grid from "@mui/joy/Grid";
-import ModeToggle from "./components/ModeToggle/ModeToggle";
 import NavBar from "./components/NavBar/NavBar";
+import GameGrid from "./components/GameGrid/GameGrid";
 
 function App() {
   return (
@@ -13,15 +12,14 @@ function App() {
         <Grid
           xs={0}
           lg={6}
-          bgcolor={"Gold"}
           sx={{
             display: { xs: "none", lg: "block" }, // hide on screens smaller than lg
           }}
         >
           Aside
         </Grid>
-        <Grid xs={12} lg={6} bgcolor={"dodgerblue"}>
-          Main
+        <Grid xs={12} lg={6}>
+          <GameGrid />
         </Grid>
       </Grid>
     </>
