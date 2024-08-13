@@ -1,5 +1,4 @@
 import { Chip, ChipProps } from "@mui/joy";
-import React from "react";
 
 interface Props {
   score: number;

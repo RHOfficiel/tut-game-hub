@@ -1,4 +1,3 @@
-import React from "react";
 import { Game } from "../../hooks/useGames";
 import {
   AspectRatio,
@@ -10,6 +9,7 @@ import {
 } from "@mui/joy";
 import PlatFormIconList from "./PlatFormIconList";
 import CriticScore from "./CriticScore";
+import getCroppedImageURL from "../../services/image-url";
 
 interface Props {
   game: Game;
@@ -20,8 +20,16 @@ const GameCard = ({ game }: Props) => {
     <>
       <Card variant="outlined" sx={{ width: 320 }}>
         <CardOverflow>
-          <AspectRatio ratio="2">
-            <img src={game.background_image} loading="lazy" alt={game.name} />
+          <AspectRatio ratio={16 / 11}>
+            <img
+              src={getCroppedImageURL(game.background_image)}
+              srcSet={
+                getCroppedImageURL(game.background_image) +
+                "?auto=format&fit=crop&w=800"
+              }
+              loading="lazy"
+              alt={game.name}
+            />
           </AspectRatio>
         </CardOverflow>
         <CardContent>
