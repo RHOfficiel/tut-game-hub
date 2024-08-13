@@ -7,6 +7,7 @@ import {
   CardOverflow,
   Typography,
 } from "@mui/joy";
+import PlatFormIconList from "../PlatFormIconList/PlatFormIconList";
 
 interface Props {
   game: Game;
@@ -18,18 +19,14 @@ const GameCard = ({ game }: Props) => {
       <Card variant="outlined" sx={{ width: 320 }}>
         <CardOverflow>
           <AspectRatio ratio="2">
-            <img
-              src={game.background_image}
-              /* src="https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318"
-              srcSet="https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?auto=format&fit=crop&w=318&dpr=2 2x" */
-              loading="lazy"
-              alt={game.name}
-            />
+            <img src={game.background_image} loading="lazy" alt={game.name} />
           </AspectRatio>
         </CardOverflow>
         <CardContent>
-          <Typography level="title-md">{game.name}</Typography>
-          <Typography level="body-sm">California</Typography>
+          <PlatFormIconList
+            platforms={game.parent_platforms.map((p) => p.platform)}
+          />
+          <Typography level="title-lg">{game.name}</Typography>
         </CardContent>
       </Card>
     </>
