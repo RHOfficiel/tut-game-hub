@@ -5,9 +5,11 @@ import {
   Card,
   CardContent,
   CardOverflow,
+  Stack,
   Typography,
 } from "@mui/joy";
-import PlatFormIconList from "../PlatFormIconList/PlatFormIconList";
+import PlatFormIconList from "./PlatFormIconList";
+import CriticScore from "./CriticScore";
 
 interface Props {
   game: Game;
@@ -23,9 +25,17 @@ const GameCard = ({ game }: Props) => {
           </AspectRatio>
         </CardOverflow>
         <CardContent>
-          <PlatFormIconList
-            platforms={game.parent_platforms.map((p) => p.platform)}
-          />
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent="space-between"
+          >
+            <PlatFormIconList
+              platforms={game.parent_platforms.map((p) => p.platform)}
+            />
+            <CriticScore score={game.metacritic} />
+          </Stack>
+
           <Typography level="title-lg">{game.name}</Typography>
         </CardContent>
       </Card>

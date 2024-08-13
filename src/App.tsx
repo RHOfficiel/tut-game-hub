@@ -1,6 +1,6 @@
 import Grid from "@mui/joy/Grid";
-import NavBar from "./components/NavBar/NavBar";
-import GameGrid from "./components/GameGrid/GameGrid";
+import NavBar from "./components/Nav/NavBar";
+import GameGrid from "./components/Main/GameGrid";
 
 function App() {
   return (

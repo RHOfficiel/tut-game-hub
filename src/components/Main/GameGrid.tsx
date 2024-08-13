@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/joy";
 import useGames from "../../hooks/useGames";
-import GameCard from "../GameCard/GameCard";
+import GameCard from "./GameCard";
 
 const GameGrid = () => {
   const { games, error } = useGames();

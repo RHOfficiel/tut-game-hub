@@ -1,7 +1,7 @@
 import { Stack, Card, CardCover } from "@mui/joy";
 
 import logo from "/src/assets/logo.webp";
-import ModeToggle from "../ModeToggle/ModeToggle";
+import ModeToggle from "./ModeToggle";
 
 const NavBar = () => {
   return (
