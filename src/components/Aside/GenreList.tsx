@@ -8,9 +8,13 @@ import {
 } from "@mui/joy";
 import useGenres from "../../hooks/useGenres";
 import getCroppedImageURL from "../../services/image-url";
+import GenreListSkeleton from "./GenreListSkeleton";
 
 const GenreList = () => {
-  const { data } = useGenres();
+  const { data, isLoading, error } = useGenres();
+
+  if (error) return null;
+  if (isLoading) return <GenreListSkeleton />;
 
   return (
     <List>
@@ -24,7 +28,7 @@ const GenreList = () => {
                 height: 48,
                 borderRadius: "20%", // Optional: to make it circular
                 overflow: "hidden", // Make sure the image is contained within
-                marginRight: 1, // Add some space between the image and text
+                marginRight: 2, // Add some space between the image and text
               }}
             >
               <img

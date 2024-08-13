@@ -14,9 +14,7 @@ const GameCardSkeleton = () => {
       <Card sx={{ width: 320, height: 325 }}>
         <CardOverflow>
           <AspectRatio ratio={16 / 11}>
-            <Skeleton variant="overlay">
-              <img src="" srcSet="" alt="" />
-            </Skeleton>
+            <Skeleton variant="overlay" />
           </AspectRatio>
         </CardOverflow>
         <CardContent>
