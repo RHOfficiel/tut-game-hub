@@ -12,10 +12,11 @@ import { BsGlobe } from "react-icons/bs";
 import { Platform } from "../../hooks/useGames";
 import { Stack, SvgIcon, Typography } from "@mui/joy";
 import { IconType } from "react-icons";
-import { padding } from "@mui/system";
+import { ReactNode } from "react";
 
 interface Props {
   platforms: Platform[];
+  children?: ReactNode;
 }
 
 const PlatFormIconList = ({ platforms }: Props) => {
@@ -36,6 +37,7 @@ const PlatFormIconList = ({ platforms }: Props) => {
       <Stack direction="row">
         {platforms.map((platform) => (
           <SvgIcon
+            key={platform.id}
             sx={{
               paddingRight: 1,
               paddingBottom: 1,
@@ -45,7 +47,6 @@ const PlatFormIconList = ({ platforms }: Props) => {
             component={iconMap[platform.slug]}
             inheritViewBox
           />
-          // <Typography level="body-sm" startDecorator={iconMap[platform.slug]} >{platform.name}</Typography>
         ))}
       </Stack>
     </>

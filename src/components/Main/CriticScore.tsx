@@ -1,7 +1,9 @@
 import { Chip, ChipProps } from "@mui/joy";
+import { ReactNode } from "react";
 
 interface Props {
   score: number;
+  children?: ReactNode;
 }
 
 const CriticScore = ({ score }: Props) => {
