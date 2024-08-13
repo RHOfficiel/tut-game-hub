@@ -1,6 +1,7 @@
 import Grid from "@mui/joy/Grid";
 import NavBar from "./components/Nav/NavBar";
 import GameGrid from "./components/Main/GameGrid";
+import GenreList from "./components/Aside/GenreList";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
             display: { xs: "none", lg: "block" }, // hide on screens smaller than lg
           }}
         >
-          Aside
+          <GenreList />
         </Grid>
         <Grid xs={12} lg={10}>
           <GameGrid />
