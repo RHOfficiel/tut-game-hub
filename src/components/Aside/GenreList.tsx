@@ -1,16 +1,21 @@
 import {
   AspectRatio,
+  Link,
   List,
   ListItem,
   ListItemDecorator,
   Stack,
   Typography,
 } from "@mui/joy";
-import useGenres from "../../hooks/useGenres";
+import useGenres, { Genre } from "../../hooks/useGenres";
 import getCroppedImageURL from "../../services/image-url";
 import GenreListSkeleton from "./GenreListSkeleton";
 
-const GenreList = () => {
+interface Props {
+  onSelectGenre: (genre: Genre) => void;
+}
+
+const GenreList = ({ onSelectGenre }: Props) => {
   const { data, isLoading, error } = useGenres();
 
   if (error) return null;
@@ -47,7 +52,18 @@ const GenreList = () => {
               />
             </AspectRatio>
           </ListItemDecorator>
-          <Typography level="h4">{genre.name}</Typography>
+
+          <Link
+            overlay
+            onClick={() => onSelectGenre(genre)}
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "start",
+            }}
+          >
+            <Typography level="h4">{genre.name}</Typography>
+          </Link>
         </ListItem>
       ))}
     </List>
