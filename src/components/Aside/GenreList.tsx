@@ -13,9 +13,10 @@ import GenreListSkeleton from "./GenreListSkeleton";
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
 
-const GenreList = ({ onSelectGenre }: Props) => {
+const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
   const { data, isLoading, error } = useGenres();
 
   if (error) return null;
@@ -55,6 +56,7 @@ const GenreList = ({ onSelectGenre }: Props) => {
 
           <Link
             overlay
+            underline="none"
             onClick={() => onSelectGenre(genre)}
             sx={{
               display: "flex",
@@ -62,7 +64,11 @@ const GenreList = ({ onSelectGenre }: Props) => {
               alignItems: "start",
             }}
           >
-            <Typography level="h4">{genre.name}</Typography>
+            <Typography
+              level={genre.id === selectedGenre?.id ? "h4" : "body-lg"}
+            >
+              {genre.name}
+            </Typography>
           </Link>
         </ListItem>
       ))}

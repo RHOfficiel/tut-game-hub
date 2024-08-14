@@ -21,7 +21,10 @@ function App() {
             display: { xs: "none", lg: "block" }, // hide on screens smaller than lg
           }}
         >
-          <GenreList onSelectGenre={(genre) => setSelectedGenre(genre)} />
+          <GenreList
+            selectedGenre={selectedGenre}
+            onSelectGenre={(genre) => setSelectedGenre(genre)}
+          />
         </Grid>
         <Grid xs={12} lg={10}>
           <GameGrid selectedGenre={selectedGenre} />
