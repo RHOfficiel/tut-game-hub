@@ -25,9 +25,7 @@ const GameGrid = ({ selectedGenre }: Props) => {
           display: "flex",
           gap: 2,
           flexWrap: "wrap",
-          p: 2,
           m: 0,
-          justifyContent: "center",
         }}
       >
         {isLoading &&

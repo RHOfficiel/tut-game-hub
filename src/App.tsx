@@ -4,6 +4,8 @@ import GameGrid from "./components/Main/GameGrid";
 import GenreList from "./components/Aside/GenreList";
 import { useState } from "react";
 import { Genre } from "./hooks/useGenres";
+import PlatformSelector from "./components/Main/PlatformSelector";
+import { Box, Stack, Typography } from "@mui/joy";
 
 function App() {
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
@@ -27,7 +29,27 @@ function App() {
           />
         </Grid>
         <Grid xs={12} lg={10}>
-          <GameGrid selectedGenre={selectedGenre} />
+          <Stack
+            direction="column"
+            justifyContent="center"
+            alignItems="flex-start"
+            spacing={2}
+          >
+            <Box
+              sx={{
+                paddingX: 5,
+              }}
+            >
+              <Typography paddingBottom={3} level="h1">
+                {selectedGenre ? selectedGenre?.name : "Home"}
+              </Typography>
+              <Stack direction="row" spacing={2}>
+                <PlatformSelector />
+                <PlatformSelector />
+              </Stack>
+            </Box>
+            <GameGrid selectedGenre={selectedGenre} />
+          </Stack>
         </Grid>
       </Grid>
     </>
