@@ -6,9 +6,13 @@ import { useState } from "react";
 import { Genre } from "./hooks/useGenres";
 import PlatformSelector from "./components/Main/PlatformSelector";
 import { Box, Stack, Typography } from "@mui/joy";
+import { Platform } from "./hooks/useGames";
 
 function App() {
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
+  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(
+    null
+  );
 
   return (
     <>
@@ -41,14 +45,32 @@ function App() {
               }}
             >
               <Typography paddingBottom={3} level="h1">
-                {selectedGenre ? selectedGenre?.name : "Home"}
+                {selectedGenre && selectedPlatform
+                  ? selectedGenre?.name +
+                    " " +
+                    selectedPlatform?.name +
+                    " Games"
+                  : selectedGenre
+                  ? selectedGenre?.name + " Games"
+                  : selectedPlatform
+                  ? selectedPlatform?.name + " Games"
+                  : "Home Games"}
               </Typography>
               <Stack direction="row" spacing={2}>
-                <PlatformSelector />
-                <PlatformSelector />
+                <PlatformSelector
+                  selectedPlatform={selectedPlatform}
+                  onSelectPlatform={(platform) => setSelectedPlatform(platform)}
+                />
+                <PlatformSelector
+                  selectedPlatform={selectedPlatform}
+                  onSelectPlatform={(platform) => setSelectedPlatform(platform)}
+                />
               </Stack>
             </Box>
-            <GameGrid selectedGenre={selectedGenre} />
+            <GameGrid
+              selectedPlatform={selectedPlatform}
+              selectedGenre={selectedGenre}
+            />
           </Stack>
         </Grid>
       </Grid>
