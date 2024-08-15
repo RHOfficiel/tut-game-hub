@@ -8,6 +8,7 @@ import PlatformSelector from "./components/Main/PlatformSelector";
 import { Box, Stack, Typography } from "@mui/joy";
 import { Platform } from "./hooks/useGames";
 import SortSelector from "./components/Main/SortSelector";
+import Heading from "./components/Main/Heading";
 
 export interface GameQuery {
   genre: Genre | null;
@@ -49,18 +50,10 @@ function App() {
                 paddingBottom: 5,
               }}
             >
-              <Typography paddingBottom={2} level="h1">
-                {gameQuery.genre && gameQuery.platform
-                  ? gameQuery.genre?.name +
-                    " " +
-                    gameQuery.platform?.name +
-                    " Games"
-                  : gameQuery.genre
-                  ? gameQuery.genre?.name + " Games"
-                  : gameQuery.platform
-                  ? gameQuery.platform?.name + " Games"
-                  : "Home Games"}
-              </Typography>
+              <Heading
+                selectedGenre={gameQuery.genre}
+                selectedPlatform={gameQuery.platform}
+              />
               <Stack direction="row" spacing={2}>
                 <PlatformSelector
                   selectedPlatform={gameQuery.platform}

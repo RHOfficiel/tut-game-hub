@@ -26,7 +26,7 @@ const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
       <MenuButton endDecorator={<ArrowDropDown />}>
         Order by: {currentSortOrder?.label || "Relevance"}
       </MenuButton>
-      <Menu sx={{ minWidth: 160, "--ListItemDecorator-size": "48px" }}>
+      <Menu sx={{ minWidth: 200, "--ListItemDecorator-size": "48px" }}>
         {sortOrders.map((order) => (
           <MenuItem
             onClick={() => onSelectSortOrder(order.value)}
