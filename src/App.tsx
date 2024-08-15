@@ -8,11 +8,13 @@ import PlatformSelector from "./components/Main/PlatformSelector";
 import { Box, Stack, Typography } from "@mui/joy";
 import { Platform } from "./hooks/useGames";
 
+export interface GameQuery {
+  genre: Genre | null;
+  platform: Platform | null;
+}
+
 function App() {
-  const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
-  const [selectedPlatform, setSelectedPlatform] = useState<Platform | null>(
-    null
-  );
+  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
 
   return (
     <>
@@ -28,8 +30,8 @@ function App() {
           }}
         >
           <GenreList
-            selectedGenre={selectedGenre}
-            onSelectGenre={(genre) => setSelectedGenre(genre)}
+            selectedGenre={gameQuery.genre}
+            onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
           />
         </Grid>
         <Grid xs={12} lg={10}>
@@ -45,32 +47,33 @@ function App() {
               }}
             >
               <Typography paddingBottom={3} level="h1">
-                {selectedGenre && selectedPlatform
-                  ? selectedGenre?.name +
+                {gameQuery.genre && gameQuery.platform
+                  ? gameQuery.genre?.name +
                     " " +
-                    selectedPlatform?.name +
+                    gameQuery.platform?.name +
                     " Games"
-                  : selectedGenre
-                  ? selectedGenre?.name + " Games"
-                  : selectedPlatform
-                  ? selectedPlatform?.name + " Games"
+                  : gameQuery.genre
+                  ? gameQuery.genre?.name + " Games"
+                  : gameQuery.platform
+                  ? gameQuery.platform?.name + " Games"
                   : "Home Games"}
               </Typography>
               <Stack direction="row" spacing={2}>
                 <PlatformSelector
-                  selectedPlatform={selectedPlatform}
-                  onSelectPlatform={(platform) => setSelectedPlatform(platform)}
+                  selectedPlatform={gameQuery.platform}
+                  onSelectPlatform={(platform) =>
+                    setGameQuery({ ...gameQuery, platform })
+                  }
                 />
                 <PlatformSelector
-                  selectedPlatform={selectedPlatform}
-                  onSelectPlatform={(platform) => setSelectedPlatform(platform)}
+                  selectedPlatform={gameQuery.platform}
+                  onSelectPlatform={(platform) =>
+                    setGameQuery({ ...gameQuery, platform })
+                  }
                 />
               </Stack>
             </Box>
-            <GameGrid
-              selectedPlatform={selectedPlatform}
-              selectedGenre={selectedGenre}
-            />
+            <GameGrid gameQuery={gameQuery} />
           </Stack>
         </Grid>
       </Grid>
