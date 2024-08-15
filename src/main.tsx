@@ -12,7 +12,6 @@ import CssBaseline from "@mui/material/CssBaseline";
 
 const materialTheme = materialExtendTheme();
 
-import { ChakraProvider } from "@chakra-ui/react";
 import "@fontsource/inter";
 import App from "./App";
 
