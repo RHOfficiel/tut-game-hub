@@ -55,10 +55,7 @@ function App() {
                 paddingBottom: 5,
               }}
             >
-              <Heading
-                selectedGenre={gameQuery.genre}
-                selectedPlatform={gameQuery.platform}
-              />
+              <Heading gameQuery={gameQuery} />
               <Stack direction="row" spacing={2}>
                 <PlatformSelector
                   selectedPlatform={gameQuery.platform}

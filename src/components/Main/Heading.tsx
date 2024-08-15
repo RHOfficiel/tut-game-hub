@@ -1,22 +1,20 @@
 import { Typography } from "@mui/joy";
-import { Genre } from "../../hooks/useGenres";
-import { Platform } from "../../hooks/useGames";
+import { GameQuery } from "../../App";
 
 interface Props {
-  selectedGenre: Genre | null;
-  selectedPlatform: Platform | null;
+  gameQuery: GameQuery;
 }
 
-const Heading = ({ selectedGenre, selectedPlatform }: Props) => {
+const Heading = ({ gameQuery }: Props) => {
+  const heading = `${gameQuery.platform?.name || ""} ${
+    gameQuery.genre?.name || ""
+  } ${
+    !gameQuery.platform?.name && !gameQuery.genre?.name ? "Home Games" : "Games"
+  } `;
+
   return (
     <Typography paddingBottom={2} level="h1">
-      {selectedGenre && selectedPlatform
-        ? selectedGenre?.name + " " + selectedPlatform.name + " Games"
-        : selectedGenre
-        ? selectedGenre?.name + " Games"
-        : selectedPlatform
-        ? selectedPlatform?.name + " Games"
-        : "Home Games"}
+      {heading}
     </Typography>
   );
 };
