@@ -2,15 +2,15 @@ import { Stack, Card, CardCover } from "@mui/joy";
 
 import logo from "/src/assets/logo.webp";
 import ModeToggle from "./ModeToggle";
+import SearchInput from "./SearchInput";
 
-const NavBar = () => {
+interface Props {
+  onSearch: (searchText: string) => void;
+}
+
+const NavBar = ({ onSearch }: Props) => {
   return (
-    <Stack
-      direction="row"
-      alignItems="center"
-      justifyContent="space-between"
-      padding={1}
-    >
+    <Stack direction="row" alignItems="center" padding={1}>
       <Card
         sx={{
           width: 60, // Set the width of the Card to 60px
@@ -30,6 +30,7 @@ const NavBar = () => {
           />
         </CardCover>
       </Card>
+      <SearchInput onSearch={onSearch} sx={{ flexGrow: 1, paddingX: 5 }} />
       <ModeToggle />
     </Stack>
   );
