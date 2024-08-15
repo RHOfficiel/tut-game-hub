@@ -1,6 +1,5 @@
 import { ArrowDropDown } from "@mui/icons-material";
 import { Dropdown, Menu, MenuButton, MenuItem } from "@mui/joy";
-import React from "react";
 
 interface Props {
   onSelectSortOrder: (sortOrder: string) => void;

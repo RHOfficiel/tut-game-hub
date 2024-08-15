@@ -1,4 +1,3 @@
-import React from "react";
 import { Dropdown, Menu, MenuButton, MenuItem } from "@mui/joy";
 import ArrowDropDown from "@mui/icons-material/ArrowDropDown";
 import usePlatforms from "../../hooks/usePlatforms";

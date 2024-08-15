@@ -4,7 +4,6 @@ import {
   List,
   ListItem,
   ListItemDecorator,
-  Stack,
   Typography,
 } from "@mui/joy";
 import useGenres, { Genre } from "../../hooks/useGenres";

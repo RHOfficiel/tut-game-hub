@@ -5,7 +5,7 @@ import GenreList from "./components/Aside/GenreList";
 import { useState } from "react";
 import { Genre } from "./hooks/useGenres";
 import PlatformSelector from "./components/Main/PlatformSelector";
-import { Box, Stack, Typography } from "@mui/joy";
+import { Box, Stack } from "@mui/joy";
 import { Platform } from "./hooks/useGames";
 import SortSelector from "./components/Main/SortSelector";
 import Heading from "./components/Main/Heading";
