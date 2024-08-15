@@ -19,7 +19,7 @@ interface Props {
 const GameCard = ({ game }: Props) => {
   return (
     <>
-      <Card sx={{ width: 320, minHeight: 350 }}>
+      <Card sx={{ width: 320, height: 370 }}>
         <CardOverflow>
           <AspectRatio ratio={16 / 11}>
             <img
