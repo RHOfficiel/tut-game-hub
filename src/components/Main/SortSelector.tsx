@@ -23,10 +23,13 @@ const SortSelector = ({ onSelectSortOrder, sortOrder }: Props) => {
 
   return (
     <Dropdown>
-      <MenuButton endDecorator={<ArrowDropDown />}>
+      <MenuButton variant="soft" endDecorator={<ArrowDropDown />}>
         Order by: {currentSortOrder?.label || "Relevance"}
       </MenuButton>
-      <Menu sx={{ minWidth: 200, "--ListItemDecorator-size": "48px" }}>
+      <Menu
+        variant="soft"
+        sx={{ minWidth: 200, "--ListItemDecorator-size": "48px" }}
+      >
         {sortOrders.map((order) => (
           <MenuItem
             onClick={() => onSelectSortOrder(order.value)}

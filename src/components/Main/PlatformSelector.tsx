@@ -16,10 +16,13 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
 
   return (
     <Dropdown>
-      <MenuButton endDecorator={<ArrowDropDown />}>
+      <MenuButton variant="soft" endDecorator={<ArrowDropDown />}>
         {selectedPlatform?.name || "Platform"}
       </MenuButton>
-      <Menu sx={{ minWidth: 160, "--ListItemDecorator-size": "48px" }}>
+      <Menu
+        variant="soft"
+        sx={{ minWidth: 160, "--ListItemDecorator-size": "48px" }}
+      >
         {data.map((platform) => (
           <MenuItem
             onClick={() => onSelectPlatform(platform)}
