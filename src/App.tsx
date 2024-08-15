@@ -7,10 +7,12 @@ import { Genre } from "./hooks/useGenres";
 import PlatformSelector from "./components/Main/PlatformSelector";
 import { Box, Stack, Typography } from "@mui/joy";
 import { Platform } from "./hooks/useGames";
+import SortSelector from "./components/Main/SortSelector";
 
 export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
+  sortOrder: string;
 }
 
 function App() {
@@ -44,9 +46,10 @@ function App() {
             <Box
               sx={{
                 paddingX: 5,
+                paddingBottom: 5,
               }}
             >
-              <Typography paddingBottom={3} level="h1">
+              <Typography paddingBottom={2} level="h1">
                 {gameQuery.genre && gameQuery.platform
                   ? gameQuery.genre?.name +
                     " " +
@@ -65,10 +68,10 @@ function App() {
                     setGameQuery({ ...gameQuery, platform })
                   }
                 />
-                <PlatformSelector
-                  selectedPlatform={gameQuery.platform}
-                  onSelectPlatform={(platform) =>
-                    setGameQuery({ ...gameQuery, platform })
+                <SortSelector
+                  sortOrder={gameQuery.sortOrder}
+                  onSelectSortOrder={(sortOrder) =>
+                    setGameQuery({ ...gameQuery, sortOrder })
                   }
                 />
               </Stack>
