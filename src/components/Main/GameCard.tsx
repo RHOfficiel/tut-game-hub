@@ -10,6 +10,7 @@ import {
 import PlatFormIconList from "./PlatFormIconList";
 import CriticScore from "./CriticScore";
 import getCroppedImageURL from "../../services/image-url";
+import Emoji from "./Emoji";
 
 interface Props {
   game: Game;
@@ -18,7 +19,7 @@ interface Props {
 const GameCard = ({ game }: Props) => {
   return (
     <>
-      <Card sx={{ width: 320, height: 325 }}>
+      <Card sx={{ width: 320, minHeight: 350 }}>
         <CardOverflow>
           <AspectRatio ratio={16 / 11}>
             <img
@@ -45,6 +46,7 @@ const GameCard = ({ game }: Props) => {
           </Stack>
 
           <Typography level="title-lg">{game.name}</Typography>
+          <Emoji rating={game.rating_top} />
         </CardContent>
       </Card>
     </>

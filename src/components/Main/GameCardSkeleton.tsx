@@ -11,7 +11,7 @@ import {
 const GameCardSkeleton = () => {
   return (
     <>
-      <Card sx={{ width: 320, height: 325 }}>
+      <Card sx={{ width: 320, minHeight: 350 }}>
         <CardOverflow>
           <AspectRatio ratio={16 / 11}>
             <Skeleton variant="overlay" />
